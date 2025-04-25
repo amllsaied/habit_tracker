@@ -13,19 +13,27 @@
 */
 
 import 'package:flutter/material.dart';
-import 'package:habit_tarcker/splash.dart';
 
-void main(){
-  runApp(HabitTracker());
-}
+import 'onboarding.dart';
 
-class HabitTracker extends StatelessWidget {
-  const HabitTracker({super.key});
+class Splash extends StatelessWidget {
+  const Splash({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Splash(),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            ElevatedButton(
+                onPressed: (){
+                  Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => Onboarding(),));
+                },
+                child: Text("data")
+            )
+          ],
+        ),
+      ),
     );
   }
 }
